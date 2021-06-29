@@ -4,3 +4,7 @@ from .models import Place, Image
 
 admin.site.register(Place)
 admin.site.register(Image)
+
+
+class ImageInline(admin.TabularInline):
+    model = Image

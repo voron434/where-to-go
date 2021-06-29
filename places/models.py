@@ -1,4 +1,4 @@
-import os
+from enum import unique
 
 from django.db import models
 from where_to_go import settings
@@ -16,10 +16,12 @@ class Place(models.Model):
 
 
 class Image(models.Model):
-    num = 0
-    link = models.ForeignKey(Place, on_delete=models.PROTECT)
-    file = models.ImageField(upload_to=None, width_field=None)
+    place = models.ForeignKey(Place, on_delete=models.PROTECT)
+    file = models.ImageField(upload_to="media", width_field=None)
+    priority = models.IntegerField(editable=True)
+
+    class Meta:
+        unique_together = ('place', 'priority',)
 
     def __str__(self):
-        self.num = self.num + 1
-        return str(self.num) + ' ' + self.link.title
+        return f"{self.priority} {self.place.title}"
