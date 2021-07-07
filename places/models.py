@@ -16,9 +16,9 @@ class Place(models.Model):
 
 
 class Image(models.Model):
-    place = models.ForeignKey(Place, on_delete=models.PROTECT)
+    place = models.ForeignKey(Place, on_delete=models.PROTECT, related_name='images')
     file = models.ImageField(upload_to="media", width_field=None)
-    priority = models.IntegerField(editable=True)
+    priority = models.PositiveIntegerField(editable=True)
 
     class Meta:
         unique_together = ('place', 'priority',)
