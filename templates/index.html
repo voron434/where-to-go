@@ -53,8 +53,8 @@
           },
           "properties": {
             "title": "{{place.title}}",
-            "placeId": "moscow_legends",
-            "detailsUrl": "{% static "./places/moscow_legends.json" %}"
+            "placeId": "{{place.place_slug}}",
+            "detailsUrl": "places/{{place.id}}"
           }
         }
       {%if not forloop.last%},{%endif%}

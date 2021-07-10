@@ -6,8 +6,7 @@ from django.shortcuts import render
 from os import path
 
 # from django.conf import settings
-# from django.utils.text import slugify
-
+from slugify import slugify_ru
 from places.models import Place
 
 
@@ -27,6 +26,8 @@ def show_all_places(request):
             'coord_lng': place.coord_lng,
             'coord_lat': place.coord_lat,
             'title': place.title,
+            'id': place.id,
+            'place_slug': slugify_ru(place.title, to_lower=True),
         })
 
     return render(request, "index.html", context={
