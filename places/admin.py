@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
+from adminsortable2.admin import SortableInlineAdminMixin
 from .models import Place, Image
 
 
@@ -23,13 +24,12 @@ class ImageAdmin(admin.ModelAdmin):
                            )
 
 
-class ImageInline(admin.TabularInline):
+class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Image
     readonly_fields = ("file_image", )
 
     def file_image(self, obj):
         img_dims = balance_dims(obj.file.height, obj.file.width)
-        print(img_dims)
         return format_html('<img src="{url}" width="{width}" height={height}>'.
                            format(url=obj.file.url,
                                   width=img_dims[1],

@@ -18,10 +18,12 @@ class Place(models.Model):
 class Image(models.Model):
     place = models.ForeignKey(Place, on_delete=models.PROTECT, related_name='images')
     file = models.ImageField(upload_to="media", width_field=None)
-    priority = models.PositiveIntegerField(editable=True)
+    priority = models.PositiveIntegerField(editable=True, default=0,
+                                           blank=False, null=False)
 
     class Meta:
-        unique_together = ('place', 'priority',)
+        # unique_together = ('place', 'priority',)
+        ordering = ['priority']
 
     def __str__(self):
         return f"{self.priority} {self.place.title}"
