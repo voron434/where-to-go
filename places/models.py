@@ -2,12 +2,13 @@ from enum import unique
 
 from django.db import models
 from where_to_go import settings
+from tinymce.models import HTMLField
 
 
 class Place(models.Model):
     title = models.CharField(max_length=100, blank=True)
     description_short = models.TextField(max_length=500, blank=True)
-    description_long = models.TextField(blank=True)
+    description_long = HTMLField()
     coord_lng = models.FloatField(null=True)
     coord_lat = models.FloatField(null=True)
 
