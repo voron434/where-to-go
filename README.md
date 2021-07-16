@@ -1,5 +1,7 @@
 # Куда пойти -- Москва глазами Артёма
 
+Адрес в интернете: [http://fortranische.pythonanywhere.com](http://fortranische.pythonanywhere.com)
+
 ![front page](screenshot.png)
 
 ### Предметная область
