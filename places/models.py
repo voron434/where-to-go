@@ -23,7 +23,6 @@ class Image(models.Model):
                                            blank=False, null=False)
 
     class Meta:
-        # unique_together = ('place', 'priority',)
         ordering = ['priority']
 
     def __str__(self):
