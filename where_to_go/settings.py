@@ -31,7 +31,7 @@ SECRET_KEY = env('SECRET_KEY', 'iutginteifnetingitng')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [env('ALLOWED_HOST_1'), ['ydn4xcrzohtz.pythonanywhere.com', 'localhost', '127.0.0.1']]
+ALLOWED_HOSTS = ['ydn4xcrzohtz.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
